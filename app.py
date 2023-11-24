@@ -28,7 +28,6 @@ def app():
 
     with st.sidebar:
         api_key = st.text_input('Your OpenAI API key:', 'sk-...')
-        # st.image("./cover.png")
         st.image("https://hwfc-test.oss-cn-guangzhou.aliyuncs.com/cover.png")
 
         btn = st.button("生成对话线程")
@@ -55,7 +54,8 @@ def app():
             st.session_state["OPENAI_API_KEY"] = api_key
 
             client = get_openai_client(api_key=api_key)
-            thread_id = create_thread(client)
+            with st.spinner('Wait for it...'):
+                thread_id = create_thread(client)
             st.session_state["thread_id"] = thread_id
             st.session_state["openai_client"] = client
 

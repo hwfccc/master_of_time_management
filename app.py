@@ -1,16 +1,5 @@
-from openai import OpenAI
 import streamlit as st
 from ai_setting import get_openai_client, create_thread, create_message, get_message
-
-
-def get_completion_from_messages(client, messages, model="gpt-4"):
-    response = client.chat.completions.create(
-        model=model,
-        messages=messages
-        # response_format={"type": "json_object"}
-    )
-    print(response)
-    return response.choices[0].message.content
 
 
 def app():

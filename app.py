@@ -84,7 +84,7 @@ def app():
             # Display chat messages from history on app rerun
             for message in st.session_state.messages:
                 with st.chat_message(message["role"]):
-                    st.markdown(message["content"][0])
+                    st.markdown(message["content"])
 
             # Display new user question.
             with st.chat_message("user"):
@@ -93,15 +93,11 @@ def app():
             # Display assistant response in chat message container
             with st.chat_message("assistant"):
                 message_placeholder = st.empty()
-                full_response = ""
-
                 run_id = create_message(st.session_state["openai_client"], st.session_state["thread_id"], user_plan)
-
                 response = get_message(st.session_state["openai_client"], st.session_state["thread_id"], run_id)
-                full_response += response
-                message_placeholder.markdown(full_response + "▌")
-                message_placeholder.markdown(full_response)
-            st.session_state.messages.append({"role": "assistant", "content": [full_response, 1]})
+                message_placeholder.markdown(response)
+
+            st.session_state.messages.append({"role": "assistant", "content": response})
 
 
 if __name__ == "__main__":

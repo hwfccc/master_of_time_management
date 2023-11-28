@@ -28,7 +28,8 @@ def app():
 
     with st.sidebar:
         api_key = st.text_input('Your OpenAI API key:', 'sk-...')
-        st.image("https://hwfc-test.oss-cn-guangzhou.aliyuncs.com/cover.png")
+        # st.image("https://hwfc-test.oss-cn-guangzhou.aliyuncs.com/cover.png")
+        st.image("./static/cover.png")
 
         btn = st.button("生成对话线程")
 

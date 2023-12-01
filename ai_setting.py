@@ -1,7 +1,8 @@
 import time
+import streamlit as st
 from openai import OpenAI
 
-assistant_id = "asst_VwefqfzpjDmlQ7tMVbvxi8mY"
+assistant_id = st.secrets["assistant_id"]
 
 
 def get_openai_client(api_key):

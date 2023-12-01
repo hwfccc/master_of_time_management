@@ -48,6 +48,18 @@ def create_message(openai_client, thread_id, content):
     return run.id
 
 
+def get_history_message(openai_client, thread_id):
+
+    message_res = openai_client.beta.threads.messages.list(thread_id)
+
+    history_message = list()
+
+    for info in message_res:
+        history_message.append((info.role, info.content[0].text.value, info.created_at))
+
+    return [{"role": i[0], "content": i[1]} for i in sorted(history_message, key=lambda x: x[2])]
+
+
 def get_message(openai_client, thread_id, run_id):
 
     while True:

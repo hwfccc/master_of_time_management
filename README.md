@@ -13,20 +13,26 @@ Check out the configuration reference at https://huggingface.co/docs/hub/spaces-
 
 
 ## app links: 
-### https://huggingface.co/spaces/hhugging/master-of-time-management
+### https://masteroftimemanagement-c4csx9sxbfpv6lr8fxrjkk.streamlit.app/
 
 ## Github
 ### https://github.com/hwfccc/master_of_time_management/tree/main
 
 ## Introduction
 
-时间管理大师可以辅助事务繁杂的创业者，对众多信息进行整理，并辅助进行日程编排和回忆事项
+- 时间管理大师可以辅助事务繁杂的创业者，对众多信息进行整理，并辅助进行日程编排和回忆事项
+- 利用用户名关联对话历史记录
 
 ## How to Use
 
-1. 输入正确的api_key
-2. 点击「生成对话线程」
-3. 在右下方方框输入日程、安排等，提交
+### ⚠️登录 or 注册
+1. 如果已经注册过，使用名称和密码进行登录
+2. 新用户首次使用需进行注册
+
+### ⚠️对话使用方法
+3. 输入正确的api_key
+4. 点击「生成对话线程」
+5. 在右下方方框输入日程、安排等，提交
 
 ## Setup and Running
 

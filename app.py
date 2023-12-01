@@ -1,4 +1,3 @@
-from datetime import datetime
 import streamlit as st
 from ai_setting import get_openai_client, create_thread, create_message, get_message, get_history_message
 from db_setting import check_user_name, sign_up, check_user, save_thread_id, check_user_thread
@@ -60,6 +59,8 @@ def app():
     st.title("时间管理大师 v0.1.0")
     announce = st.caption('''
     :blue[🏆核心亮点：] 融合备忘录、提醒事项、日历三项能力的贴心助理。
+    
+    :red[⚠️注意：] 对话历史记录与用户账号关联，首次使用请注册，已有账号请直接登录。:red[❗️❗️❗]
     ''')
 
     # 分界线
@@ -70,8 +71,12 @@ def app():
 
     if "user_sign_type" not in st.session_state:
         st.session_state.user_sign_type = ""
-        st.button("登录", key="sign_in", on_click=click_sign_in)
-        st.button("注册", key="sign_up", on_click=click_sign_up)
+
+        col1, col2 = st.columns(2)
+        with col1:
+            st.button("登录", key="sign_in", on_click=click_sign_in)
+        with col2:
+            st.button("注册", key="sign_up", on_click=click_sign_up)
 
     elif st.session_state.user_sign_type and not st.session_state.name:
         user_sign_section()
